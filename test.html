@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personality Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>🦉 Student Personality Test</h1>
+
+<form action "index.php" id="testForm">
+
+<h2>Basic Information</h2>
+
+<label>Name:</label>
+<input type="text" name="name" required><br><br>
+
+<label>Age:</label>
+<input type="number" name="age" min="15" max="20" required><br><br>
+
+<h2>Questions</h2>
+
+<p>1. How do you like to study?</p>
+<label><input type="radio" name="q1" value="visual" required> Videos / diagrams</label><br>
+<label><input type="radio" name="q1" value="auditory"> Listening</label><br>
+<label><input type="radio" name="q1" value="reading"> Reading</label><br>
+<label><input type="radio" name="q1" value="kinesthetic"> Practice</label><br><br>
+
+<p>2. You are more:</p>
+<label><input type="radio" name="q2" value="introvert" required> Introvert</label><br>
+<label><input type="radio" name="q2" value="extrovert"> Extrovert</label><br>
+<label><input type="radio" name="q2" value="ambivert"> Ambivert</label><br><br>
+
+<p>3. Your work speed:</p>
+<label><input type="radio" name="q3" value="slow" required> Slow</label>
+<label><input type="radio" name="q3" value="medium"> Medium</label>
+<label><input type="radio" name="q3" value="fast"> Fast</label><br><br>
+
+<p>4. When you don’t understand something:</p>
+<label><input type="radio" name="q4" value="ask" required> Ask teacher</label><br>
+<label><input type="radio" name="q4" value="self"> Try yourself</label><br>
+<label><input type="radio" name="q4" value="ignore"> Skip it</label><br><br>
+
+<p>5. You prefer lessons that are:</p>
+<label><input type="radio" name="q5" value="structured" required> Structured</label><br>
+<label><input type="radio" name="q5" value="flexible"> Flexible</label><br>
+<label><input type="radio" name="q5" value="interactive"> Interactive</label><br><br>
+
+<p>6. Under stress you:</p>
+<label><input type="radio" name="q6" value="panic" required> Panic</label><br>
+<label><input type="radio" name="q6" value="focus"> Focus more</label><br>
+<label><input type="radio" name="q6" value="avoid"> Avoid work</label><br><br>
+
+<p>7. Group work or solo?</p>
+<label><input type="radio" name="q7" value="solo" required> Alone</label><br>
+<label><input type="radio" name="q7" value="group"> Group</label><br>
+<label><input type="radio" name="q7" value="both"> Both</label><br><br>
+
+<button type="button" onclick="showResults()">Submit</button>
+<button type="reset">Reset</button>
+
+</form>
+
+<h2>Results:</h2>
+<p id="results"></p>
+
+<script>
+function showResults() {
+
+    const form = document.getElementById("testForm");
+    const data = new FormData(form);
+
+    let result = "";
+
+    switch(data.get("q1")) {
+        case "visual": result += " Visual learner<br>"; break;
+        case "auditory": result += "Auditory learner<br>"; break;
+        case "reading": result += "Reading learner<br>"; break;
+        case "kinesthetic": result += " Kinesthetic learner<br>"; break;
+    }
+
+   
+    switch(data.get("q2")) {
+        case "introvert": result += "Introvert<br>"; break;
+        case "extrovert": result += " Extrovert<br>"; break;
+        case "ambivert": result += "⚖Ambivert<br>"; break;
+    }
+
+  
+    switch(data.get("q3")) {
+        case "slow": result += " Slow learner<br>"; break;
+        case "medium": result += " Medium pace<br>"; break;
+        case "fast": result += " Fast learner<br>"; break;
+    }
+
+    
+    if(data.get("q4") === "ask") result += "‍ Asks teacher<br>";
+    if(data.get("q4") === "self") result += " Independent<br>";
+    if(data.get("q4") === "ignore") result += "⚠ Needs motivation<br>";
+
+    
+    if(data.get("q5") === "structured") result += " Likes structure<br>";
+    if(data.get("q5") === "flexible") result += " Flexible style<br>";
+    if(data.get("q5") === "interactive") result += " Interactive learner<br>";
+
+    if(data.get("q6") === "panic") result += " Stress sensitive<br>";
+    if(data.get("q6") === "focus") result += " Works under pressure<br>";
+    if(data.get("q6") === "avoid") result += " Avoids stress<br>";
+
+    if(data.get("q7") === "solo") result += "Works alone<br>";
+    if(data.get("q7") === "group") result += " Team player<br>";
+    if(data.get("q7") === "both") result += " Flexible worker<br>";
+
+    document.getElementById("results").innerHTML = result;
+}
+</script>
+
+</body>
+</html>

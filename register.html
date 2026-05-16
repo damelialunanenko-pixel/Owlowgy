@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owlogy</title>
+</head>
+<body>
+
+<header>
+  <img src="https://uploads.onecompiler.io/44cgcwkmh/44hvp8jt6/562A9380-A833-4EF5-BECA-C69C851BD864.png" width="150">
+  <p>Welcome to Owlogy 🦉</p>
+</header>
+
+<form method="POST">
+
+<h3>Select Student</h3>
+
+<select name="student">
+  <?php while($row = $students->fetch_assoc()) { ?>
+    <option value="<?= $row['student_id'] ?>">
+      <?= $row['student_name'] ?>
+    </option>
+  <?php } ?>
+</select>
+
+<br><br>
+
+<h3>Choose Course</h3>
+
+<select name="course">
+  <?php while($row = $courses->fetch_assoc()) { ?>
+    <option value="<?= $row['course_id'] ?>">
+      <?= $row['course_name'] ?>
+    </option>
+  <?php } ?>
+</select>
+
+<br><br>
+
+<h3>Choose Subjects</h3>
+
+<label><input type="checkbox" name="subject[]" value="math"> Math</label><br>
+<label><input type="checkbox" name="subject[]" value="physics"> Physics</label><br>
+<label><input type="checkbox" name="subject[]" value="english"> English</label><br>
+
+<br>
+
+<h3>Grade</h3>
+
+<label><input type="radio" name="grade" value="A"> A</label>
+<label><input type="radio" name="grade" value="B"> B</label>
+<label><input type="radio" name="grade" value="C"> C</label>
+
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

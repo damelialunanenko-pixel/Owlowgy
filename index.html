@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registartion page</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <header>
+        <h1>Welcome to owlowgy!</h1>
+        <img src="https://uploads.onecompiler.io/44cgcwkmh/44hvp8jt6/562A9380-A833-4EF5-BECA-C69C851BD864.png" height:20px width:20px>
+      </header>
+      
+      <h2>Who are you?</h2>
+
+<form action="role.php" onsubmit="goToForm(event)">
+
+  <label>
+    <input type="radio" name="role" value="student" required> Student
+  </label>
+
+  <label>
+    <input type="radio" name="role" value="teacher"> Teacher
+  </label>
+
+  <br><br>
+  <button type="submit">Continue</button>
+
+</form>
+
+<script>
+function goToForm(event) {
+    event.preventDefault();
+
+    let role = document.querySelector('input[name="role"]:checked').value;
+
+    if (role === "student") {
+        window.location.href = "student_form.html";
+    } else {
+        window.location.href = "teacher_form.html";
+    }
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<h2>Student Form</h2>
+
+<form action="index.php" method="POST">
+
+
+<h3>Select subjects</h3>
+
+<label><input type="checkbox" name="subjects[]" value="Math"> Math</label><br>
+<label><input type="checkbox" name="subjects[]" value="Physics"> Physics</label><br>
+<label><input type="checkbox" name="subjects[]" value="English"> English</label><br>
+<label><input type="checkbox" name="subjects[]" value="IT"> IT</label><br>
+
+<br>
+
+
+<h3>Current grade</h3>
+
+<label><input type="radio" name="current_grade" value="A" required> A</label>
+<label><input type="radio" name="current_grade" value="B"> B</label>
+<label><input type="radio" name="current_grade" value="C"> C</label>
+<label><input type="radio" name="current_grade" value="D"> D</label>
+
+<br><br>
+
+
+<h3>Desired grade</h3>
+
+<label><input type="radio" name="desired_grade" value="A" required> A</label>
+<label><input type="radio" name="desired_grade" value="B"> B</label>
+
+<br><br>
+
+
+<h3>Select lesson date</h3>
+
+<input type="date" name="lesson_date" required>
+
+<br><br>
+
+
+<h3>Select time</h3>
+
+<input type="time" name="lesson_time" required>
+
+<br><br>
+
+
+<h3>Lesson duration</h3>
+
+<select name="duration">
+  <option value="60">60 minutes</option>
+  <option value="90">90 minutes</option>
+  <option value="120">120 minutes</option>
+</select>
+
+<br><br>
+
+<button type="submit">Submit</button>
+
+</form>
